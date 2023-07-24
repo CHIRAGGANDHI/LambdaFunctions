@@ -21,8 +21,7 @@ provider:
             - "ssm:Get*"
             - "ssm:List*"
           Resource: 
-            - "*"
-            
+            - "*"            
 functions:
   rateHandler:
     name: ${self:custom.functionName}
@@ -51,6 +50,5 @@ resources:
           Fn::GetAtt: [CronJobTrigger, Arn]
       DependsOn:
         - RateHandlerLambdaFunction  
-
 custom:
   functionName: rateHandlerv2 
